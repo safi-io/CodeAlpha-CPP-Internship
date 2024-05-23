@@ -7,7 +7,7 @@ int main() {
     
     // Seed the random number generator with the current time
     srand(time(0));
-    // Generate a random number between 0 and 999
+    // Generate a random number between 0 to 999
     actualNum = rand() % 1000;
 
     do {
