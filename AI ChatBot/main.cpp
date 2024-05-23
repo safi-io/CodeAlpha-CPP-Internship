@@ -77,5 +77,9 @@ void printTime() {
          << ltm->tm_min <<" " << session << endl;
 }
 void printName() {
-
+    if(flag==true) {
+        
+    } else{
+        cout << "I currently don't know your name..." << endl;
+    }
 }
