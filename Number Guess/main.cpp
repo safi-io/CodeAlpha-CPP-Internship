@@ -10,10 +10,13 @@ int main() {
     // Generate a random number between 0 to 999
     actualNum = rand() % 1000;
 
+    // Loop until the user guesses the correct number
     do {
+        // Prompt the user to guess the number
         cout << "Guess the Correct Number (0-1000) :: " << endl;
         cin >> guessNum;
 
+        // Check if the guess is correct
         if (guessNum == actualNum) {
             cout << "You guessed the right number!" << endl;
             break;
@@ -22,6 +25,7 @@ int main() {
         // If the guess is lower than the actual number
         if (guessNum < actualNum) {
             int difference = actualNum - guessNum;
+            // Provide hints based on the difference between the guess and the actual number
             if (difference >= 500) {
                 cout << "You guessed a very low number..." << endl;
             } else if (difference >= 200) {
@@ -40,6 +44,7 @@ int main() {
         // If the guess is higher than the actual number
         if (guessNum > actualNum) {
             int difference = guessNum - actualNum;
+            // Provide hints based on the difference between the guess and the actual number
             if (difference >= 500) {
                 cout << "You guessed a very high number..." << endl;
             } else if (difference >= 200) {
@@ -56,7 +61,6 @@ int main() {
         }
     } while (guessNum != actualNum);
 
-    system("PAUSE");
 
     return 0;
 }
