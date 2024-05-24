@@ -1,5 +1,6 @@
 #include <iostream>  
 #include <ctime>  
+#include <string>
 
 using namespace std;
 
@@ -8,11 +9,52 @@ tm* ltm = localtime(&now);
 
 void printDate(); // All Done
 void printTime(); // All Done
-void printName();
+void printName(string userName);
 
 int main() {  
-    // printTime();
-    // printDate();
+
+    string question, userName;
+    bool nameBool = false;
+
+    do {
+        
+        cout << "How can I help you ??" << endl;
+        cin.ignore();
+        getline(cin, question);
+
+        string nameStr = "name";
+        string timeStr = "time";
+        string dateStr = "date";
+    
+        size_t nameStrBool = question.find(nameStr);
+        size_t timeStrBool = question.find(timeStr);
+        size_t dateStrBool = question.find(dateStr);
+
+        if(nameStrBool != string::npos) {
+
+            if(nameBool==false) {
+                cout << "Please Tell your name, I will remember it :: " << endl;
+                cin.ignore();
+                getline(cin, userName);
+                nameBool = true;
+
+            } else {
+                printName(userName);
+            }
+
+        } else if(timeStrBool != string::npos) {
+
+            printTime();
+
+        } else if(dateStrBool != string::npos){
+
+            printDate();
+
+        } else {
+            cout << "I am unable to understand you, Please Try Again.." << endl;
+        }
+
+    }while(question != "0");
 } 
 
 void printDate() {
@@ -76,10 +118,6 @@ void printTime() {
     cout << "Time :: " << hours << ":"  
          << ltm->tm_min <<" " << session << endl;
 }
-void printName() {
-    if(flag==true) {
-        
-    } else{
-        cout << "I currently don't know your name..." << endl;
-    }
+void printName(string userName) {
+    cout << "Your beautiful name is :: " << userName << endl; 
 }
