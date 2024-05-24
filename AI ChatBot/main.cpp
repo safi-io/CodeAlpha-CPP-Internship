@@ -7,9 +7,10 @@ using namespace std;
 time_t now = time(0); 
 tm* ltm = localtime(&now);  
 
-void printDate(); // All Done
-void printTime(); // All Done
+void printDate();
+void printTime();
 void printName(string userName);
+void printFact();
 
 int main() {  
 
@@ -31,10 +32,12 @@ int main() {
         string nameStr = "name";
         string timeStr = "time";
         string dateStr = "date";
+        string factStr = "fact";
     
         size_t nameStrBool = question.find(nameStr);
         size_t timeStrBool = question.find(timeStr);
         size_t dateStrBool = question.find(dateStr);
+        size_t factStrBool = question.find(factStr);
 
         if(nameStrBool != string::npos) {
 
@@ -51,11 +54,15 @@ int main() {
 
             printTime();
 
-        } else if(dateStrBool != string::npos){
+        } else if(dateStrBool != string::npos) {
 
             printDate();
 
-        } else {
+        } else if(factStrBool != string::npos) {
+
+            printFact();
+        }
+         else {
             cout << "I am unable to understand you, Please Try Again.." << endl;
         }
 
@@ -125,4 +132,12 @@ void printTime() {
 }
 void printName(string userName) {
     cout << "Your beautiful name is :: " << userName << endl; 
+}
+void printFact() {
+    string facts[5] = {"Tomatoes are a fruit, not a vegetable.", "On average, the human heart beats 100,000 times a day.", "Your brain is constantly eating itself.", "Ants take rest for around 8 Minutes in 12-hour period.", "AB negative is the rarest blood type."};
+
+    // Generate a random number between 0 to 4
+    int randomInteger = rand() % 5;
+
+    cout << facts[randomInteger] << endl;
 }
