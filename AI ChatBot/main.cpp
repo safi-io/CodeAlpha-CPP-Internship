@@ -16,11 +16,17 @@ int main() {
     string question, userName;
     bool nameBool = false;
 
+    cout << "--Press Space and then Enter to stop Talking with Bot---" << endl;
+
     do {
-        
         cout << "How can I help you ??" << endl;
         cin.ignore();
         getline(cin, question);
+
+        if(question=="") {
+            cout << "Thanks for using me. A Bot Developed by Safi!";
+            return 0;
+        }
 
         string nameStr = "name";
         string timeStr = "time";
@@ -33,9 +39,8 @@ int main() {
         if(nameStrBool != string::npos) {
 
             if(nameBool==false) {
-                cout << "Please Tell your name, I will remember it :: " << endl;
-                cin.ignore();
-                getline(cin, userName);
+                cout << "First, Please tell your name, I will remember it :: " << endl;
+                cin >> userName;
                 nameBool = true;
 
             } else {
@@ -54,7 +59,7 @@ int main() {
             cout << "I am unable to understand you, Please Try Again.." << endl;
         }
 
-    }while(question != "0");
+    }while(true);
 } 
 
 void printDate() {
